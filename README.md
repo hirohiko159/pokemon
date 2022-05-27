@@ -29,7 +29,7 @@ on lui propose 3 choix (avec un case) attaquer changer de pokemon fuir
 
 
 
-# Menu choix action
+*****Menu choix action
   - attaquer:
     Le pokemon actif du joueur attaque le pokemon adverse,
     on soustrait aux "HP" du pokemon adverse l'"ATTACK" du pokemon attaquant
