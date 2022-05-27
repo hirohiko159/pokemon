@@ -1,9 +1,29 @@
-[ un programme bdd.py avec des fonctions ]
+# [ un programme bdd.py avec des fonctions ]
 
-Quand on lance pokemon.py l utilisateur entre un nom exemple: Thomas
-  1- verifier si ce nom existe dans le fichier joueurs.bdd
-      fichier joueurs.bdd = liste de tableaux joueurs (contient les pokemons, mais pas leurs attributs) ex Thomas = { [poke1] [poke2] [poke3] }     
-     si Thomas existe pas, on le crée et on lui assigne 3 pokemon au hasard -> cf Fonctions Classiques ajout_bdd
+# Quand on lance pokemon.py l utilisateur entre un nom de joueur     exemple: Thomas
+ # 1- verifier si ce nom existe dans le fichier joueurs.bdd
+  #    fichier joueurs.bdd = liste de tableaux joueurs (contient les pokemons, mais pas leurs attributs) ex Thomas = { [poke1] [poke2] [poke3] }     
+ 
+ Thomas;Pikachu;Bulbizarre;Dracaufeu
+Gabriel;Triopikeur;Psykokwak;Mewtwo
+ 
+ 
+ 
+ 
+ 
+ def get_joueurs(name):
+    data = open("joueurs.bdd",r)
+      try:
+        for name in data:
+        #si name existe on associe name+pokemon à joueur1
+      except:
+        ajout_bdd(name)
+
+
+# afficher toutes les villes de france
+for i in data:
+    print(i["fields"]["nom_de_la_commune"])
+    si Thomas existe pas, on le crée et on lui assigne 3 pokemon au hasard -> cf Fonctions Classiques ajout_bdd
 
 *get_joueurs()   -> recuperer la bdd des joueurs (il faut crée un fichier joueur.bdd), les mets dans des dicos (j1={"nom":"bob,pokemons:[poke1,poke2]})
 load joueur => inscrit le dico Thomas dans un dico joueur1
