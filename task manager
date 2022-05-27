@@ -3,12 +3,12 @@ LIste des taches à faire, chacun peut se mettre sur une tache et inscrire quand
 
 Importation des ressources : 
 
-comment ouvrir un fichier et l exporter dans le python en liste
+comment ouvrir un fichier et l'exporter dans le python en liste
 
 comment choisir aleatoirement  pokemon dans la liste
 
-COmment créer le pokedex?
--> liste de liste
+Comment créer le pokedex?
+-> liste de dictionnaires
 
 Comment aller chercher une valeur specifique de la liste et la comparer (speed, attack/defense)
 
