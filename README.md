@@ -13,6 +13,7 @@ Ressources:
 Deroulement du programme:
   
 ###### COMBAT #####
+
 On rentre son nom de joueur: soit il est connu et renseigné dans la base de donnée, soit on le crée et on le renseigne dans la bdd 
 on lui assigne 3 pokemons aleatoires (from pokedex)
 
@@ -28,7 +29,7 @@ on lui propose 3 choix (avec un case) attaquer changer de pokemon fuir
 
 
 
-Menu choix action
+# Menu choix action
   - attaquer:
     Le pokemon actif du joueur attaque le pokemon adverse,
     on soustrait aux "HP" du pokemon adverse l'"ATTACK" du pokemon attaquant
@@ -56,6 +57,7 @@ le combat continue tant qu'il reste 2 pokemon non Ko et que personne n'a fuit ( 
 #### if j1 ou j2 na plus de pokemon partie finie et on importe le resulat sur la base de donnée
                         
  
+ 
 
 ######  partie gestion de la bdd ########
                         
@@ -64,6 +66,52 @@ quand un pokemon est mis Ko ll est transferé chez l'autre joueur
 si un joueur perd ses 3 pokemons c'est game over on le suprime de la bdd
 
 
-###### 
+
+
+
+###### A DISTANCE ######
+
+[ A DISTANCE ]
+
+trouver un moyen de jouer a distance avec 2 client et 1 serveur
+
+
+                    [  BDDs  ]
+                        |
+[ CLIENT 1 ]     -> [ serveur ]    <-   [ CLIENT 2 ]
+
+
+--------------------------------------------------------
+
+
+
+[ CLIENT 1 ]     <->    [ CLIENT 2 ]
+    |                       |
+    |_______________________|
+               |
+               v
+            [ serveur  BDD ]
+
+
+
+
+
+Il faudrait communiquer seulement les actions des clients entre eux
+Il faut respecter le tour de chaque joueurs
+
+Pour commencer, le serveur ne peut gerer qu'une partie en cours a la fois 
+
+
+
+possibilités:
+python http classe : https://docs.python.org/fr/3/library/http.html
+
+python socket : https://docs.python.org/fr/3/howto/sockets.html
+
+
+
+ssh?
+ftp?
+
 
                         
