@@ -1,1 +1,46 @@
-test branch bdd. py
+[ un programme bdd.py avec des fonctions ]
+
+Quand on lance pokemon.py l utilisateur entre un nom exemple: Thomas
+  1- verifier si ce nom existe dans le fichier joueurs.bdd
+      fichier joueurs.bdd = liste de tableaux joueurs (contient les pokemons, mais pas leurs attributs) ex Thomas = { [poke1] [poke2] [poke3] }     
+     si Thomas existe pas, on le crée et on lui assigne 3 pokemon au hasard -> cf Fonctions Classiques ajout_bdd
+
+*get_joueurs()   -> recuperer la bdd des joueurs (il faut crée un fichier joueur.bdd), les mets dans des dicos (j1={"nom":"bob,pokemons:[poke1,poke2]})
+load joueur => inscrit le dico Thomas dans un dico joueur1
+
+
+
+joueur1 = {
+  "namej":
+  pokemons: [poke1 poke2 poke3] 
+}
+
+
+get_pokemons() -> recupere dans le JSON seulement les pokemons des joueurs
+pokemons=[ pokej1-1{} , pokej1-2{} , pokej1-3{}, pokej2-1{}, pokej2-2{} , pokej2-3{} ] -> premiere partie, que 6 pokemons
+
+pokej1-1={
+    "name":"bob",
+    "HP":12,
+    "speed":15,
+    "Attack":20,
+    #"Defense":15,
+    "Weakness": []
+}
+
+
+
+get_types() -> on recupere aussi seulement que les types utilisés.
+
+
+types=[ {} ]
+
+get_random_pokemon() -> recupere un pokemon aléatoire dans la liste de tous les pokemons (pour la création d'un joueur)
+
+
+#### les fonctions "classiques"
+
+
+ajout_bdd() -> ajoute un joueur
+modifier_bdd() -> modifier un joueur
+supprimer_bdd -> supprimer un joueur 
