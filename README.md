@@ -12,7 +12,7 @@ Ressources:
 
 Deroulement du programme:
   
-###### COMBAT #####
+###### COMBAT ######
 
 On rentre son nom de joueur: soit il est connu et renseigné dans la base de donnée, soit on le crée et on le renseigne dans la bdd 
 on lui assigne 3 pokemons aleatoires (from pokedex)
