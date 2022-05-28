@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from re import A
+
 from sys import version
 #import BDD
 #import player
@@ -33,6 +34,7 @@ import bdd
 #       self.joueur_actif=0
 #   def init_bdd() -> va chercher les joueurs, qui va chercher les pokemons
 #   def start() -> demarre la partie#  def stop() -> quand la partie se termine, on enregistre les dicos
+
 # creation des listes pour les joueurs (remplace les classes)
 # le joueur1 a plusieurs attributs:
 # noms[0]
@@ -75,11 +77,13 @@ while pokemon_adversaire ['base']['HP'] > 0 and pokemon_joueur ['base'] ['HP'] >
     print ("")
     presenter_joueur (tour)  #on aficche le joueur et le pokemon
     presenter (pokemon_joueur) 
+
     print ("")
     print("")
     presenter_joueur (attente)
     presenter (pokemon_adversaire)
     print ("")
+
     print("1) attaque")
     print("2) changer de pokemon")
     print("3) fuir")
@@ -113,4 +117,4 @@ print ("######### Partie Finie #############")
 #annoncer le gagnant
 #faire une liste d epokemon pour en avoir 3
     
-    
+  
