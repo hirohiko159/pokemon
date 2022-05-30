@@ -1,0 +1,57 @@
+READ ME  - Combat de Pokemon
+
+Groupe 2 :  Florent - Gabriel - Rania - Thibaud - THomas P
+Version 1.0
+date : Mai 2022
+
+Script en Python pour faire un combat de Pokemon, en local. Deux joueurs s'affrontent au tour par tour.
+
+******* NOTE *******
+Programme en phase de developpement. Se referer aux issues du Github pour voir les mise a jour à venir !
+
+
+
+Contenu du dossier Git: 
+
+Bases de donnèes : 
+
+- pokedex.json = dictionnaire des tous les Pokemon avec leur noms et caractéristiques
+- type.json = dictionnaire regroupant les forces et faiblesses par type de Pokemon
+- joueurs.json = dictionnaire qui regroupe les joueurs et leurs Pokemon 
+
+Scripts : 
+
+- pokemon.py = script principal, gere les appels de joueurs, les combats, l'enregistrement
+- bdd.py = script secondaire, definit la classe Bdd utilisée pour gérer les 3 fichiers bdd, definit les fonctions qui sont appelées par le script principal
+
+
+Déroulement d'une partie : 
+
+1 - lancer pokemon.py
+2 - Identification des joueurs
+  Les deux joueurs jouent sur le meme ordinateur, à tour de role. Le programme demande les noms de joueurs. Si le joueur existe
+  dans la base de donnée joueurs.json, il est récupérer avec tous ses Pokemon associés. Si le nom de joueur n existe pas, il est crée
+  et le programme lui associe 3 Pokemon issus de la base de donnee Pokedex.json.
+3 - Combat tour par tour
+  Pour chaque joueur, un Pokemon de son équipe est aleatoirement activé. Le script affiche les joueur, leur Pokemon. Le joueur 1 commence.
+  Il a trois options :
+    - attaquer avec le Pokemon actif le Pokemon de joueur. Les points HP de Pokemon 2 sont diminués de la valeur de Attack Pokemon 1
+    - changer de Pokemon actif. Le programme affiche la liste de Pokemon disponibles, le joueur selectionne celui qu il veut activer.
+    - tenter de fuir 
+    
+  A la fin de son action, le joueur 2 prend la main et a les memes choix.
+  
+ 4 - fin du combat
+  Le combat se termine des lors qu un joueur choisit la fuite (taux de reussite 100%) ou qu un Pokemon atteint HP=0 
+  (prise de relai d un autre Pokemon non gérée)
+ 
+ La fin du combat entraine la fermeture du programme.
+ 
+ 
+
+ 
+
+ 
+ 
+  
+ 
