@@ -53,10 +53,11 @@ def show_pokemon (players):
         print (players ["Pokemons"][i]["name"]["french"])
 # Action Attaque lors d un combat
 def attaque (poke1 , poke2) :
-    poke2['base']['HP']-= poke1['base']['Attack']/2
+    poke2['base']['HP']-= poke1['base']['Attack']/4
 #initialisation des variables
 fuite = False 
 i=0
+reussite=0
 
 #recuperation des joueurs 1 et 2
 name_j1=input("Entrez le nom du joueur 1 : ") 
@@ -105,7 +106,23 @@ while pokemon_adversaire ['base']['HP'] > 0 and pokemon_joueur ['base'] ['HP'] >
     # Option 1 = Attaque   
     if reponse in ['1']:
             attaque (pokemon_joueur , pokemon_adversaire) 
-            print("\n"*50)
+            # gestion du cas ou un Pokemon est KO
+            if pokemon_adversaire['base']['HP'] < 0:
+                print(" Votre Pokemon ", pokemon_adversaire ['name']['french'], "est K.O. !" )
+                #il faut faire un remove!!!
+                bdd.Bdd1.add_pokemon(tour, attente, pokemon_adversaire)
+                #afficher les nouvelles equipes
+                print("Liste Pokemon j2")
+                show_pokemon(attente)
+                print("Liste Pokemon j1")
+                show_pokemon(tour)
+                # Pb si on active un Pokemon KO gagné lors d un tour précédent. HP = 0 fin du combat!
+                pokemon_adversaire = random.choice (attente["Pokemons"])
+                # Pb de boucle infinie si TOUS les Pokemon sont KO
+                # while pokemon_adversaire['base']['HP'] < 0:
+                #     pokemon_adversaire = random.choice (attente["Pokemons"])
+                print(pokemon_adversaire ['name']['french'], " entre dans le combat !!")
+            print("\n"*5)
     # Option 2 = Swap de Pokemon
     if reponse in ['2'] :
       show_pokemon (tour)
@@ -120,8 +137,12 @@ while pokemon_adversaire ['base']['HP'] > 0 and pokemon_joueur ['base'] ['HP'] >
     # Option 3 = Fuite
     if reponse in ['3'] :
         print ("vous prenez la fuite") 
-        fuite=True
-        
+        reussite=random.choice(range(4))
+        if reussite == 0:
+            fuite=True
+            print("Reussite! Vous prenez la fuite")
+        else:
+            print("Echec! Le combat continue")
     #on alterne avec un inter pour gérer le tour par tour
     inter=pokemon_adversaire 
     pokemon_adversaire=pokemon_joueur #on alterne avec un inter pour gerer le tour par tour
@@ -136,3 +157,4 @@ print ("######### Partie Finie #############")
 #faire une liste de pokemon pour en avoir 3
     
   
+
