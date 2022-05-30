@@ -2,9 +2,6 @@
 from re import A
 
 from sys import version
-#import BDD
-#import player
-#import pokemon
 import random
 import os
 import bdd
@@ -43,56 +40,73 @@ import bdd
 # points[0]
 
 #definition des fonctions
-def presenter (pokemon) : #creation fonction pour presenter les pokemon
+#creation fonction pour presenter les pokemon
+def presenter (pokemon) : 
     print (pokemon ['name']['french'])
     print (pokemon ['base']['HP'])
-def presenter_joueur (players) : #creation fonction pour presenter les joueurs
+#creation fonction pour presenter les joueurs
+def presenter_joueur (players) : 
     print (players['name'])
+# Affichage des Pokemon d un joueur - liste complete
 def show_pokemon (players):
     for i in range(len(players["Pokemons"])):
         print (players ["Pokemons"][i]["name"]["french"])
+# Action Attaque lors d un combat
 def attaque (poke1 , poke2) :
     poke2['base']['HP']-= poke1['base']['Attack']/2
-fuite = False #initialisation des variables
+#initialisation des variables
+fuite = False 
 i=0
 
 #recuperation des joueurs 1 et 2
 name_j1=input("Entrez le nom du joueur 1 : ") 
 j1=bdd.Bdd1.retrieve_joueur(name_j1)
 if j1 == False:
-    j1=bdd.Bdd1.create_joueur(name_j1) # si le joueur n'existe pas on le creer
+    # si le joueur n'existe pas on le crée
+    j1=bdd.Bdd1.create_joueur(name_j1) 
+
 name_j2=input("Entrez le nom du joueur 2 : ")
 j2=bdd.Bdd1.retrieve_joueur(name_j2)
 if j2 == False:
     j2=bdd.Bdd1.create_joueur(name_j2)
 
-joueurs = [j1,j2] # creation de la liste des joueurs
+# creation de la liste des joueurs
+joueurs = [j1,j2] 
 
 print (" ##################  vous entrer en combat pokemon  #################")
-tour= j1 #creation de variables pour gerer le tour par tour
+
+#creation de variables pour gerer le tour par tour
+tour= j1 
 attente= j2
 pokemon_joueur = random.choice (tour["Pokemons"])# on selectionne un pokemon actif chez les deux joueurs
 pokemon_adversaire = random.choice (attente["Pokemons"]) 
+
+# Combat de Pokemon - boucle While
 while pokemon_adversaire ['base']['HP'] > 0 and pokemon_joueur ['base'] ['HP'] >0 and fuite==False : #condition de fin de partie
     print ("")
-    presenter_joueur (tour)  #on aficche le joueur et le pokemon
+   #on affiche le joueur et le pokemon
+    presenter_joueur (tour)  
     presenter (pokemon_joueur) 
 
     print ("")
     print("")
+    # affichage des joueurs et de leur Pokemon actif
     presenter_joueur (attente)
     presenter (pokemon_adversaire)
     print ("")
-
+    
+    #Affiche du menu d'actions
     print("1) attaque")
     print("2) changer de pokemon")
     print("3) fuir")
     reponse =''
     if reponse not in ['1','2','3'] : 
         reponse = input ("que voulez vous faire (1,2,3) ")
+    # Option 1 = Attaque   
     if reponse in ['1']:
             attaque (pokemon_joueur , pokemon_adversaire) 
             print("\n"*50)
+    # Option 2 = Swap de Pokemon
     if reponse in ['2'] :
       show_pokemon (tour)
       # ne fonctionne que si le joueur possede 3 Pokemon!!
@@ -103,18 +117,22 @@ while pokemon_adversaire ['base']['HP'] > 0 and pokemon_joueur ['base'] ['HP'] >
         pokemon_joueur=tour["Pokemons"][1]
       if choix in ['c']:
         pokemon_joueur=tour["Pokemons"][2]
+    # Option 3 = Fuite
     if reponse in ['3'] :
         print ("vous prenez la fuite") 
         fuite=True
         
+    #on alterne avec un inter pour gérer le tour par tour
     inter=pokemon_adversaire 
     pokemon_adversaire=pokemon_joueur #on alterne avec un inter pour gerer le tour par tour
     pokemon_joueur=inter
     inter= attente
     attente= tour
     tour= inter 
+    
+    
 print ("######### Partie Finie #############")
 #annoncer le gagnant
-#faire une liste d epokemon pour en avoir 3
+#faire une liste de pokemon pour en avoir 3
     
   
